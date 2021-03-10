@@ -1,0 +1,22 @@
+#arg1 {
+    border: black;
+    border-style: solid;
+}
+
+#ops {
+    border: darkred;
+    border-style: solid;
+}
+
+#arg2 {
+    margin: 0 1em 0 1em;
+    border: darkred;
+    border-style: solid;
+}
+
+#calc {
+    margin-top: 1em;
+    background-color: lightgreen;
+    border: red;
+    border-style: solid;
+}
