@@ -9,13 +9,8 @@ function btnCalculateOnAction() {
         return;
     }
 
-    const number1 = Number(arg1.value);
-    const number2 = Number(arg2.value);
-
-    if (typeof number1 === 'NaN' || typeof number2 !== 'NaN') {
-        alert('Only numbers allowed!');
-        return;
-    }
+    const number1 = arg1.value;
+    const number2 = arg2.value;
 
     switch (document.querySelector('select').selectedIndex) {
         case 0: {
