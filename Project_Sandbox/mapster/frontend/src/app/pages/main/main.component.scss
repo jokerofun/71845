@@ -1,0 +1,12 @@
+.navbar-start {
+    flex-grow: 1;
+    justify-content: center;
+}
+
+#undo, #zoom-in, #zoom-out {
+    justify-content: right;
+}
+
+#copy, #paste, #redo {
+    justify-content: left;
+}
