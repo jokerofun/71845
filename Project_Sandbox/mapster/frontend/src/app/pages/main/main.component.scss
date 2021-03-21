@@ -10,3 +10,17 @@
 #copy, #paste, #redo {
     justify-content: left;
 }
+
+#navtools {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.img {
+    cursor: pointer;
+    border-radius: 50%;
+    background: #cac7c8;
+    border: 1px solid black;
+    padding: 0.5%;
+}
