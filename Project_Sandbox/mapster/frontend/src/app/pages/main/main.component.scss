@@ -3,10 +3,17 @@
     justify-content: center;
 }
 
-#undo, #zoom-in, #zoom-out {
-    justify-content: right;
-}
+.level {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-#copy, #paste, #redo {
-    justify-content: left;
+    a:hover {
+        color: lightcoral !important;
+    }
+
+    .level-item {
+        color: black !important;
+        
+    }
 }
