@@ -17,3 +17,18 @@
         
     }
 }
+
+.wrapper {
+    display: grid;
+    grid-auto-flow: column dense;
+  
+    grid-template-columns: repeat(50, [col] 1fr);
+    grid-template-rows: repeat(50, [row] 1fr);
+  }
+  
+.wrapper > div {
+  padding: 15px;
+  text-align: center;
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+}
