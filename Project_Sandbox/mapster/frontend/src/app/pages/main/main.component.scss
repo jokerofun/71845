@@ -1,3 +1,9 @@
+.\.container\.is-fullhd {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+}
+
 .navbar-start {
     flex-grow: 1;
     justify-content: center;
@@ -8,27 +14,60 @@
     justify-content: space-between;
     align-items: center;
 
-    a:hover {
-        color: lightcoral !important;
-    }
-
     .level-item {
         color: black !important;
         
     }
 }
 
+.mnuButton {
+    border-width: 0px;
+}
+
+.columns {
+    height: 100%;
+}
+
+#mnuLeft {
+    height: 100%;
+    display: flex;
+    flex-direction: column !important;
+
+    #btnNew {
+        margin-top: auto;
+    }
+}
+
+#colRight {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+
+    .box {
+        width: 100%;
+        
+        div > * {
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}
+
 .wrapper {
+    background-color: gray;
     display: grid;
     grid-auto-flow: column dense;
   
-    grid-template-columns: repeat(50, [col] 1fr);
-    grid-template-rows: repeat(50, [row] 1fr);
-  }
-  
-.wrapper > div {
-  padding: 15px;
-  text-align: center;
-  border-bottom: 1px solid black;
-  border-right: 1px solid black;
+    // grid-template-columns: repeat(50, [col] 1fr);
+    // grid-template-rows: repeat(50, [row] 1fr);
+
+    div {
+        padding: 15px;
+        text-align: center;
+        border-bottom: 1px solid black;
+        border-right: 1px solid black;
+    }
 }

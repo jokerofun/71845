@@ -1,3 +1,9 @@
 #right-pic {
     margin-top: -4%;
 }
+
+@media (max-width: 769px) {
+    #right-pic {
+    display: none;
+    }
+}
