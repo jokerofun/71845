@@ -130,8 +130,7 @@
         </div>
 
         <div class="column">
-            <div class="wrapper">
-                <div>test</div>
+            <div class="mainPanel">
             </div>
         </div>
 
@@ -163,38 +162,51 @@
                         </ul>
                     </div>
                     <div>
-                        <p class="menu-label mt-4 title is-6">
+                        <p class="menu-label mt-6 title is-6">
                             Properties
                         </p>
                         <ul class="menu-list" id="props">
-                            <li>
-                                <span>Label</span>
-                                <button class="geColorBtn">
-                                    <div style="width:36px;height:12px;margin:3px;border:1px solid black;background-color:#ffffff;">
-                                    </div>
-                                </button>
-                            </li>
-                            <li>
-                                <span>Colour</span>
-                                <button class="geColorBtn">
-                                    <div style="width:36px;height:12px;margin:3px;border:1px solid black;background-color:#ffffff;">
-                                    </div>
-                                </button>
-                            </li>
-                            <li>
-                                <span>Stroke</span>
-                                <button class="geColorBtn">
-                                    <div style="width:36px;height:12px;margin:3px;border:1px solid black;background-color:#ffffff;">
-                                    </div>
-                                </button>
-                            </li>
-                            <li>
-                                <span>Fill</span>
-                                <button class="geColorBtn">
-                                    <div style="width:36px;height:12px;margin:3px;border:1px solid black;background-color:#ffffff;">
-                                    </div>
-                                </button>
-                            </li>
+                            <div class="columns">
+                                <div class="column">
+                                    <span>Label</span>
+                                </div>
+                                <div class="column">
+                                    <input class="input" type="text" placeholder="Name">
+                                </div>
+                            </div>
+                            <div class="columns">
+                                <div class="column">
+                                    <span>Colour</span>
+                                </div>
+                                <div class="column">
+                                    <button class="getColorBtn">
+                                        <div class="rect">
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="columns">
+                                <div class="column">
+                                    <span>Stroke</span>
+                                </div>
+                                <div class="column">
+                                    <button class="getColorBtn">
+                                        <div class="rect">
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="columns">
+                                <div class="column">
+                                    <span>Fill</span>
+                                </div>
+                                <div class="column">
+                                    <button class="getColorBtn">
+                                        <div class="rect">
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
                         </ul>
                     </div>
                 </aside>
