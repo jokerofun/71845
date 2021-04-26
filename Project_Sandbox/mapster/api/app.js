@@ -8,10 +8,16 @@ const bodyParser = require('body-parser');
 
 // Load in the mongoose models.
 const { Document } = require('./db/models');
-const PORT = 3001;
 
 // Load middleware
 app.use(bodyParser.json());
+
+// CORS HEADERS MIDDLEWARE
+app.use(function (req, res, next) { // Copied from https://enable-cors.org/server_expressjs.html
+    res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
 
 /* ROUTE HANDLERS */
 
@@ -69,11 +75,11 @@ app.patch('/docs/:id', (req, res) => {
  */
 app.delete('/docs/:id', (req, res) => {
     // Delete the specified document (with the id in the URL)
-    Document.findOneAndRemove({ _id:req.params.id }).then((docToRemove) => {
+    Document.findOneAndRemove({ _id: req.params.id }).then((docToRemove) => {
         res.send(docToRemove);
     })
 })
 
-app.listen(PORT, () => {
-    console.log(`Server is listening on port ${PORT}...`);
+app.listen(3001, () => {
+    console.log(`Server is listening on port 3001...`);
 })

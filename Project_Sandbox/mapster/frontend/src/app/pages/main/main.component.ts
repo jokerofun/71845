@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DocumentService } from 'src/app/document.service';
 
 @Component({
   selector: 'app-main',
@@ -7,11 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  constructor() { }
+  constructor(private docServ: DocumentService) { }
 
   ngOnInit(): void {
   }
 
-
+  createNewDocument() {
+    this.docServ.createDocument('Testing').subscribe((response: any) => {
+      console.log(response);
+    })
+  }
 
 }
