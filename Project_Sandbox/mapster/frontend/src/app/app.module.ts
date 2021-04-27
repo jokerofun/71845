@@ -8,13 +8,15 @@ import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { MainComponent } from './pages/main/main.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import { NewDocumentComponent } from './pages/new-document/new-document.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LogInComponent,
     SignUpComponent,
-    MainComponent
+    MainComponent,
+    NewDocumentComponent
   ],
   imports: [
     BrowserModule,

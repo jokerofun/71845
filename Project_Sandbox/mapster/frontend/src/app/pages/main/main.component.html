@@ -13,9 +13,9 @@
 
         <div id="navbarBurger" class="navbar-menu">
             <div class="navbar-start">
-                <a class="navbar-item subtitle is-4">
+                <p class="navbar-item subtitle is-4">
                     Document 1
-                </a>
+                </p>
             </div>
 
             <div class="navbar-end">
@@ -109,29 +109,55 @@
 
     <div class="columns">
 
-        <div class="column is-one-fifth box">
+        <div id="showLeft" class="is-hidden">
+            <aside class="menu">
+                <button class="button is-small is-pulled-right mnuButton">
+                    <figure class="image is-16x16">
+                        <img src="../../../assets/images/rightArrow.png" alt="Italian Trulli"
+                            (click)="hide('#showLeft'); show('#colLeft')">
+                    </figure>
+                </button>
+            </aside>
+        </div>
+
+        <div class="column is-one-fifth box ml-2" id="colLeft">
             <aside class="menu" id="mnuLeft">
                 <p class="menu-label">
                     Documents
                     <button class="button is-small is-pulled-right mnuButton">
                         <span class="icon is-small">
                             <figure class="image is-16x16">
-                                <img src="../../../assets/images/leftArrow.png" alt="Italian Trulli">
+                                <img src="../../../assets/images/leftArrow.png" alt="Italian Trulli"
+                                    (click)="show('#showLeft'); hide('#colLeft')">
                             </figure>
                         </span>
                     </button>
                 </p>
                 <ul class="menu-list">
-                    <li><a class="is-active">Document 1</a></li>
-                    <li><a>Document 2</a></li>
+                    <a class="list-menu-item is-active">
+                        <p>Document 1</p>
+                    </a>
+                    <a class="list-menu-item" *ngFor="let doc of docs" [routerLink]="['/docs', doc._id]">
+                        <p>{{ doc.title }}</p>
+                    </a>
                 </ul>
-                <button class="button is-success" id="btnNew" (click)="createNewDocument()">New</button>
+                <button class="button is-success" id="btnNew" routerLink="/new-document">New</button>
             </aside>
         </div>
 
         <div class="column">
-            <div class="mainPanel">
-            </div>
+            <canvas #canvas></canvas>
+        </div>
+
+        <div id="showRight" class="is-hidden">
+            <aside class="menu">
+                <button class="button is-small is-pulled-right mnuButton">
+                    <figure class="image is-16x16">
+                        <img src="../../../assets/images/leftArrow.png" alt="Italian Trulli"
+                            (click)="hide('#showRight'); show('#colRight')">
+                    </figure>
+                </button>
+            </aside>
         </div>
 
         <div class="column is-2" id="colRight">
@@ -141,7 +167,8 @@
                         <button class="button is-small mnuButton">
                             <span class="icon is-small">
                                 <figure class="image is-16x16">
-                                    <img src="../../../assets/images/rightArrow.png" alt="Italian Trulli">
+                                    <img src="../../../assets/images/rightArrow.png" alt="Italian Trulli"
+                                        (click)="hide('#colRight'); show('#showRight')">
                                 </figure>
                             </span>
                         </button>

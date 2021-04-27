@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
 import { DocumentService } from 'src/app/document.service';
 
 @Component({
@@ -8,15 +9,38 @@ import { DocumentService } from 'src/app/document.service';
 })
 export class MainComponent implements OnInit {
 
-  constructor(private docServ: DocumentService) { }
+  docs: any;
+  shapes: any;
+
+  constructor(private docServ: DocumentService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.route.params.subscribe((params: Params) => {
+      console.log(params);
+      this.docServ.getShapes(params.docId).subscribe((shapes: any) => {
+        this.shapes = shapes;
+      });
+    });
+
+    this.docServ.getDocs().subscribe((docs: any) => {
+      this.docs = docs;
+    });
   }
 
-  createNewDocument() {
-    this.docServ.createDocument('Testing').subscribe((response: any) => {
-      console.log(response);
-    })
+  hide(which: string): void {
+    const col: Element | null = document.querySelector(which);
+
+    if (col) {
+      col.classList.toggle('is-hidden')
+    }
+  }
+
+  show(which: string): void {
+    const col: Element | null = document.querySelector(which);
+
+    if (col) {
+      col.classList.toggle('is-hidden')
+    }
   }
 
 }
