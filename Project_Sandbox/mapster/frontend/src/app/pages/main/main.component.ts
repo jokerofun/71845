@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { DocumentService } from 'src/app/document.service';
 
@@ -9,12 +9,19 @@ import { DocumentService } from 'src/app/document.service';
 })
 export class MainComponent implements OnInit {
 
+  @ViewChild('canvas', { static: true })
+  canvas!: ElementRef<HTMLCanvasElement>;
+
+  private ctx!: CanvasRenderingContext2D;
+
   docs: any;
   shapes: any;
 
   constructor(private docServ: DocumentService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.ctx = this.canvas.nativeElement.getContext('2d')!;
+
     this.route.params.subscribe((params: Params) => {
       console.log(params);
       this.docServ.getShapes(params.docId).subscribe((shapes: any) => {
@@ -31,16 +38,14 @@ export class MainComponent implements OnInit {
     const col: Element | null = document.querySelector(which);
 
     if (col) {
-      col.classList.toggle('is-hidden')
+      col.classList.toggle('is-hidden');
     }
   }
-
-  show(which: string): void {
-    const col: Element | null = document.querySelector(which);
-
-    if (col) {
-      col.classList.toggle('is-hidden')
-    }
-  }
-
 }
+
+
+
+
+// this.ctx.strokeStyle = 'red';
+// this.ctx.strokeRect(100, 100, 50, 50);
+

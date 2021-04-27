@@ -111,10 +111,9 @@
 
         <div id="showLeft" class="is-hidden">
             <aside class="menu">
-                <button class="button is-small is-pulled-right mnuButton">
+                <button class="button is-small is-pulled-right mnuButton" (click)="hide('#showLeft'); hide('#colLeft')">
                     <figure class="image is-16x16">
-                        <img src="../../../assets/images/rightArrow.png" alt="Italian Trulli"
-                            (click)="hide('#showLeft'); show('#colLeft')">
+                        <img src="../../../assets/images/rightArrow.png" alt="Italian Trulli">
                     </figure>
                 </button>
             </aside>
@@ -124,11 +123,11 @@
             <aside class="menu" id="mnuLeft">
                 <p class="menu-label">
                     Documents
-                    <button class="button is-small is-pulled-right mnuButton">
+                    <button class="button is-small is-pulled-right mnuButton"
+                        (click)="hide('#showLeft'); hide('#colLeft')">
                         <span class="icon is-small">
                             <figure class="image is-16x16">
-                                <img src="../../../assets/images/leftArrow.png" alt="Italian Trulli"
-                                    (click)="show('#showLeft'); hide('#colLeft')">
+                                <img src="../../../assets/images/leftArrow.png" alt="Italian Trulli">
                             </figure>
                         </span>
                     </button>
@@ -151,10 +150,10 @@
 
         <div id="showRight" class="is-hidden">
             <aside class="menu">
-                <button class="button is-small is-pulled-right mnuButton">
+                <button class="button is-small is-pulled-right mnuButton"
+                    (click)="hide('#showRight'); hide('#colRight')">
                     <figure class="image is-16x16">
-                        <img src="../../../assets/images/leftArrow.png" alt="Italian Trulli"
-                            (click)="hide('#showRight'); show('#colRight')">
+                        <img src="../../../assets/images/leftArrow.png" alt="Italian Trulli">
                     </figure>
                 </button>
             </aside>
@@ -164,11 +163,10 @@
             <div class="box">
                 <aside class="menu">
                     <p class="menu-label">
-                        <button class="button is-small mnuButton">
+                        <button class="button is-small mnuButton" (click)="hide('#colRight'); hide('#showRight')">
                             <span class="icon is-small">
                                 <figure class="image is-16x16">
-                                    <img src="../../../assets/images/rightArrow.png" alt="Italian Trulli"
-                                        (click)="hide('#colRight'); show('#showRight')">
+                                    <img src="../../../assets/images/rightArrow.png" alt="Italian Trulli">
                                 </figure>
                             </span>
                         </button>
@@ -179,12 +177,16 @@
                         </p>
                         <ul class="menu-list">
                             <li>
-                                <figure class="image is-64x64">
-                                    <img src="../../../assets/images/circle.png" alt="line">
-                                </figure>
+                                <button>
+                                    <figure class="image is-64x64">
+                                        <img src="../../../assets/images/circle.png" alt="line">
+                                    </figure>
+                                </button>
                             </li>
                             <li>
-                                <img src="../../../assets/images/line.png" alt="line">
+                                <button class="mt-2">
+                                    <img src="../../../assets/images/line.png" alt="line">
+                                </button>
                             </li>
                         </ul>
                     </div>
