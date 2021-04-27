@@ -20,6 +20,8 @@ export class MainComponent implements OnInit {
   constructor(private docServ: DocumentService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.canvas.nativeElement.width = this.canvas.nativeElement.parentElement!.clientWidth;
+    this.canvas.nativeElement.height = this.canvas.nativeElement.parentElement!.clientHeight;
     this.ctx = this.canvas.nativeElement.getContext('2d')!;
 
     this.route.params.subscribe((params: Params) => {
@@ -41,11 +43,16 @@ export class MainComponent implements OnInit {
       col.classList.toggle('is-hidden');
     }
   }
+
+  drawCircle(): void {
+    this.ctx.fillStyle = 'white';
+    this.ctx.arc(100, 100, 50, 0, Math.PI * 2);
+    this.ctx.fill();
+    this.ctx.stroke();
+
+    this.ctx.moveTo(200 + 50, 200);
+    this.ctx.arc(200, 200, 50, 0, Math.PI * 2);
+    this.ctx.fill();
+    this.ctx.stroke();
+  }
 }
-
-
-
-
-// this.ctx.strokeStyle = 'red';
-// this.ctx.strokeRect(100, 100, 50, 50);
-
