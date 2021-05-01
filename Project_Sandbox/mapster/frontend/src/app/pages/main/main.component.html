@@ -1,9 +1,9 @@
 <div class=".container.is-fullhd">
     <nav class="navbar is-transparent">
         <div class="navbar-brand">
-            <a class="navbar-item">
+            <span class="navbar-item">
                 <p class="subtitle is-3 pl-4">Mapster</p>
-            </a>
+            </span>
             <div class="navbar-burger" data-target="navbarBurger">
                 <span></span>
                 <span></span>
@@ -144,8 +144,8 @@
             </aside>
         </div>
 
-        <div class="column">
-            <canvas #canvas></canvas>
+        <div class="column" id=shapeContainder>
+
         </div>
 
         <div id="showRight" class="is-hidden">
@@ -176,18 +176,14 @@
                             Shapes
                         </p>
                         <ul class="menu-list">
-                            <li>
-                                <button (click)="drawCircle()">
-                                    <figure class="image is-64x64">
-                                        <img src="../../../assets/images/circle.png" alt="line">
+                                <div>
+                                    <figure class="image is-64x64" cdkDrag>
+                                        <img src="../../../assets/images/circle.png" alt="circle">
                                     </figure>
-                                </button>
-                            </li>
-                            <li>
-                                <button class="mt-2">
+                                </div>
+                                <div class="mt-2" cdkDrag>
                                     <img src="../../../assets/images/line.png" alt="line">
-                                </button>
-                            </li>
+                                </div>
                         </ul>
                     </div>
                     <div>

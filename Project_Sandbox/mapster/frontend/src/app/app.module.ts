@@ -10,6 +10,8 @@ import { MainComponent } from './pages/main/main.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NewDocumentComponent } from './pages/new-document/new-document.component';
 
+import { DragDropModule } from '@angular/cdk/drag-drop';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +23,8 @@ import { NewDocumentComponent } from './pages/new-document/new-document.componen
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    DragDropModule
   ],
   providers: [],
   bootstrap: [AppComponent]

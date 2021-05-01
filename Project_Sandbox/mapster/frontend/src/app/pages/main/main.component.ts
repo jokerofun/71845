@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { DocumentService } from 'src/app/document.service';
 
@@ -9,20 +9,12 @@ import { DocumentService } from 'src/app/document.service';
 })
 export class MainComponent implements OnInit {
 
-  @ViewChild('canvas', { static: true })
-  canvas!: ElementRef<HTMLCanvasElement>;
-
-  private ctx!: CanvasRenderingContext2D;
-
   docs: any;
   shapes: any;
 
   constructor(private docServ: DocumentService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.canvas.nativeElement.width = this.canvas.nativeElement.parentElement!.clientWidth;
-    this.canvas.nativeElement.height = this.canvas.nativeElement.parentElement!.clientHeight;
-    this.ctx = this.canvas.nativeElement.getContext('2d')!;
 
     this.route.params.subscribe((params: Params) => {
       console.log(params);
@@ -42,17 +34,5 @@ export class MainComponent implements OnInit {
     if (col) {
       col.classList.toggle('is-hidden');
     }
-  }
-
-  drawCircle(): void {
-    this.ctx.fillStyle = 'white';
-    this.ctx.arc(100, 100, 50, 0, Math.PI * 2);
-    this.ctx.fill();
-    this.ctx.stroke();
-
-    this.ctx.moveTo(200 + 50, 200);
-    this.ctx.arc(200, 200, 50, 0, Math.PI * 2);
-    this.ctx.fill();
-    this.ctx.stroke();
   }
 }
