@@ -144,8 +144,7 @@
             </aside>
         </div>
 
-        <div class="column" id=shapeContainder>
-
+        <div class="column" id="middleColumn">
         </div>
 
         <div id="showRight" class="is-hidden">
@@ -176,14 +175,14 @@
                             Shapes
                         </p>
                         <ul class="menu-list">
-                                <div>
-                                    <figure class="image is-64x64" cdkDrag>
-                                        <img src="../../../assets/images/circle.png" alt="circle">
-                                    </figure>
-                                </div>
-                                <div class="mt-2" cdkDrag>
-                                    <img src="../../../assets/images/line.png" alt="line">
-                                </div>
+                            <button (click)="generateCircle()">
+                                <figure class="image is-64x64">
+                                    <img src="../../../assets/images/circle.png" alt="circle">
+                                </figure>
+                            </button>
+                            <button class="mt-2">
+                                <img src="../../../assets/images/line.png" alt="line">
+                            </button>
                         </ul>
                     </div>
                     <div>

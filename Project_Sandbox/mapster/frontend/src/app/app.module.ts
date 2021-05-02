@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NewDocumentComponent } from './pages/new-document/new-document.component';
 
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { CircleComponent } from './shapes/circle/circle.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     LogInComponent,
     SignUpComponent,
     MainComponent,
-    NewDocumentComponent
+    NewDocumentComponent,
+    CircleComponent
   ],
   imports: [
     BrowserModule,
