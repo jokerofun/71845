@@ -1,8 +1,12 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { ViewContainerRef } from '@angular/core';
+import { ComponentRef } from '@angular/core';
+import { ViewChild } from '@angular/core';
+import { ComponentFactory } from '@angular/core';
+import { ComponentFactoryResolver } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { DocumentService } from 'src/app/document.service';
 import { CircleComponent } from 'src/app/shapes/circle/circle.component';
-import { SignUpComponent } from '../sign-up/sign-up.component';
 
 @Component({
   selector: 'app-main',
@@ -14,7 +18,10 @@ export class MainComponent implements OnInit {
   docs: any;
   shapes: any;
 
-  constructor(private docServ: DocumentService, private route: ActivatedRoute) { }
+  @ViewChild('appendHere', {static : false, read : ViewContainerRef}) target!: ViewContainerRef;
+  private componentRef!: ComponentRef<any>;
+
+  constructor(private docServ: DocumentService, private route: ActivatedRoute, private resolver: ComponentFactoryResolver) { }
 
   ngOnInit(): void {
 
@@ -39,18 +46,7 @@ export class MainComponent implements OnInit {
   }
 
   generateCircle(): void {
-    const col: HTMLElement | null = document.querySelector('#middleColumn');
-
-    /*
-    <svg cdkDragBoundary="#middleColumn" cdkDrag>
-                <ellipse cx="200" cy="80" rx="100" ry="50" style="fill:white;stroke:purple;stroke-width:2" />
-            </svg>
-    */
-    if (col) {
-      // col.appendChild(document.createElement('app-circle'));
-      // col.innerHTML = '<app-circle></app-circle>';
-      col.classList.add("app-circle")
-    }
-
+    const childComponent: ComponentFactory<CircleComponent> = this.resolver.resolveComponentFactory(CircleComponent);
+    this.componentRef = this.target.createComponent(childComponent);
   }
 }
