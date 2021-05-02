@@ -25,7 +25,6 @@ import { CircleComponent } from './shapes/circle/circle.component';
     CircleComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, DragDropModule],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
